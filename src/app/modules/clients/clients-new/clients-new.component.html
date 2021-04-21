@@ -1,0 +1,51 @@
+<div>
+  <h3>Adicionar Novo Cliente</h3>
+</div>
+
+<div class="button-row">
+  <button mat-raised-button [routerLink]="['/clients']"><mat-icon>arrow_back</mat-icon> Voltar</button>
+</div>
+<br />
+
+<form class="container" [formGroup]="clientForm" (ngSubmit)="addCliente(clientForm.value)">
+
+  <mat-form-field>
+    <input matInput name="cpf" placeholder="CPF" formControlName="cpf" >
+  </mat-form-field>
+  <br/>
+
+  <mat-form-field>
+    <input matInput #input maxlength="100" name="primeiroNome" placeholder="Primeiro Nome" formControlName="primeiroNome">
+    <mat-hint align="end">{{input.value?.length || 0}}/100</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput name="ultimoNome" placeholder="Último Nome" formControlName="ultimoNome">
+  </mat-form-field>
+  <br/>
+
+  <mat-form-field>
+    <input matInput name="dataNascimento" placeholder="Data de Nascimento" formControlName="dataNascimento">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Sexo</mat-label>
+    <mat-select name="sexo" placeholder="Sexo" formControlName="sexo">
+      <mat-option value="M">Masculino</mat-option>
+      <mat-option value="F">Feminino</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/>
+
+  <mat-form-field>
+    <input matInput name="salario" placeholder="Salário" formControlName="salario">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput name="profissao" placeholder="Profissão" formControlName="profissao">
+  </mat-form-field>
+  <br/>
+
+  <button type="submit" [disabled]="!clientForm.valid" mat-button color="primary">Adicionar</button>
+
+</form>

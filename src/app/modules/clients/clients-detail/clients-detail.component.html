@@ -1,0 +1,40 @@
+<div>
+  <h3>Detalhe do Cliente - {{cliente?.primeiroNome}} </h3>
+</div>
+
+<div class="button-row">
+  <button mat-raised-button [routerLink]="['/clients']"><mat-icon>arrow_back</mat-icon> Voltar</button>
+</div>
+<br />
+
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+
+  <mat-card class="example-card">
+
+    <mat-card-content>
+      <mat-list role="list">
+        <mat-list-item role="listitem"><span class="mat-body-strong">CPF:</span> {{cliente?.cpf}}</mat-list-item>
+        <mat-list-item role="listitem"><span class="mat-body-strong">Primeiro Nome:</span> {{cliente?.primeiroNome}}</mat-list-item>
+        <mat-list-item role="listitem"><span class="mat-body-strong">Ultimo Nome:</span> {{cliente?.ultimoNome}}</mat-list-item>
+        <mat-list-item role="listitem"><span class="mat-body-strong">Data de Nascimento:</span> {{cliente?.dataNascimento}}</mat-list-item>
+        <mat-list-item role="listitem"><span class="mat-body-strong">Sexo:</span>
+          <span *ngIf="cliente?.sexo === 'F'">Feminino</span>
+          <span *ngIf="cliente?.sexo === 'M'">Masculino</span>
+        </mat-list-item>
+        <mat-list-item role="listitem"><span class="mat-body-strong">Salario:</span> {{cliente?.salario}}</mat-list-item>
+        <mat-list-item role="listitem"><span class="mat-body-strong">Profissão:</span> {{cliente?.profissao}}</mat-list-item>
+      </mat-list>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-flat-button color="primary" class="teste" [routerLink]="['/clients/edit', cliente?.id]"><mat-icon>edit</mat-icon> Editar</button>
+      <button mat-flat-button color="warn" (click)="deleteCliente(cliente?.id)"><mat-icon>delete</mat-icon> Excluir</button>
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>
