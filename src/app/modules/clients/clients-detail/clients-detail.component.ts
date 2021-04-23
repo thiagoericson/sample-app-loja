@@ -29,16 +29,19 @@ export class ClientsDetailComponent implements OnInit {
     });
   }
 
-  deleteCliente(id) {
-    this.isLoadingResults = true;
-    this.clientService.deleteCliente(id)
-      .subscribe(res => {
-          this.isLoadingResults = false;
-          this.router.navigate(['/clients']);
-        }, (err) => {
-          console.log(err);
-          this.isLoadingResults = false;
-        }
-      );
+  deleteCliente(id, nome: string) {
+    if(confirm("Tem certeza que deseja remover o Cliente: " + nome)) {
+      this.isLoadingResults = true;
+      this.clientService.deleteCliente(id)
+        .subscribe(res => {
+            this.isLoadingResults = false;
+            this.router.navigate(['/clients']);
+          }, (err) => {
+            console.log(err);
+            this.isLoadingResults = false;
+          }
+        );
+    }
   }
+
 }

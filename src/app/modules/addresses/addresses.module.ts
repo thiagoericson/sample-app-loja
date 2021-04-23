@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ClientsRoutingModule } from './clients-routing.module';
-import { ClientsComponent } from './clients/clients.component';
-import { ClientsDetailComponent } from './clients-detail/clients-detail.component';
-import { ClientsNewComponent } from './clients-new/clients-new.component';
-import { ClientsEditComponent } from './clients-edit/clients-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { AddressesRoutingModule } from './addresses-routing.module';
+import { AddressEditComponent } from './address-edit/address-edit.component';
+import { AddressNewComponent } from './address-new/address-new.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -18,20 +16,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { AddressesComponent } from './clients-detail/component/addresses/addresses.component';
 
 @NgModule({
   declarations: [
-    ClientsComponent,
-    ClientsDetailComponent,
-    ClientsNewComponent,
-    ClientsEditComponent,
-    AddressesComponent
+    AddressEditComponent,
+    AddressNewComponent
   ],
   imports: [
     CommonModule,
-    ClientsRoutingModule,
-    ReactiveFormsModule,
+    AddressesRoutingModule,
     MatButtonModule,
     MatCardModule,
     MatIconModule,
@@ -41,7 +34,8 @@ import { AddressesComponent } from './clients-detail/component/addresses/address
     MatSelectModule,
     MatSidenavModule,
     MatTableModule,
-    MatToolbarModule
+    MatToolbarModule,
+    ReactiveFormsModule
   ]
 })
-export class ClientsModule { }
+export class AddressesModule { }

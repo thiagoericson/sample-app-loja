@@ -6,6 +6,7 @@ import { MainLayoutComponent } from './shared/layouts/main-layout/main-layout.co
 
 // modules
 import { ClientsModule } from './modules/clients/clients.module';
+import { AddressesModule } from './modules/addresses/addresses.module';
 
 const routes: Routes = [
   {
@@ -15,6 +16,16 @@ const routes: Routes = [
         {
             path: '',
             loadChildren: () => ClientsModule
+        }
+    ]
+  },
+  {
+    path: 'clients/address',
+    component: MainLayoutComponent,
+    children: [
+        {
+            path: '',
+            loadChildren: () => AddressesModule
         }
     ]
   }
