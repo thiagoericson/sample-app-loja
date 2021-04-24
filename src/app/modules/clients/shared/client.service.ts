@@ -27,6 +27,18 @@ export class ClientService {
       );
   }
 
+  getClientesPage (page, size, nome: string): Observable<Cliente[]> {
+    let url = `${consultarClienteUrl}?page=${page}&size=${size}`;
+    if (nome.length > 0) {
+      url = url + `&nome=${nome}`;
+    }
+    return this.http.get<Cliente[]>(url)
+      .pipe(
+        tap(clientes => console.log('leu os clientes')),
+        catchError(this.handleError('getClientes', []))
+      );
+  }
+
   getCliente(id: number): Observable<Cliente> {
     const url = `${consultarClienteUrl}/${id}`;
     return this.http.get<Cliente>(url).pipe(
