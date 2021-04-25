@@ -14,34 +14,33 @@ import { Cliente } from '../shared/cliente';
 export class ClientsComponent implements OnInit {
 
   displayedColumns: string[] = [ 'cpf', 'primeiroNome', 'ultimoNome', 'dataNascimento', 'sexo', 'profissao', 'acao' ];
-  // dataSource: Cliente[];
+//  dataSource: Cliente[];
   dataSource = new MatTableDataSource<any>();
   clients: any[];
 
   isLoadingResults = true;
 
-  //  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild('paginator') paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private clientService: ClientService) { }
 
   ngOnInit() {
-    this.clientService.getClientes()
-    .subscribe(res => {
-      this.dataSource = res['content'];
-      console.log(this.dataSource);
-      this.isLoadingResults = false;
-    }, err => {
-      console.log(err);
-      this.isLoadingResults = false;
-    });
-   // this.getClientes();
+//    this.clientService.getClientes()
+//    .subscribe(res => {
+//      this.dataSource = res['content'];
+//      console.log(this.dataSource);
+//      this.isLoadingResults = false;
+//    }, err => {
+//      console.log(err);
+//      this.isLoadingResults = false;
+//    });
+    this.getClientes();
   }
 
-  ngAfterViewInit() {
-    this.dataSource = new MatTableDataSource(this.clients);
-    this.dataSource.paginator = this.paginator;
-  }
+//  ngAfterViewInit() {
+//    this.dataSource = new MatTableDataSource(this.clients);
+//    this.dataSource.paginator = this.paginator;
+//  }
 
   pageChanged(event){
     this.isLoadingResults = true;

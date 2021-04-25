@@ -15,7 +15,8 @@ import { LoginLayoutComponent } from './shared/layouts/login-layout/login-layout
 @NgModule({
   declarations: [
     AppComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    LoginLayoutComponent
   ],
   imports: [
     CoreModule,

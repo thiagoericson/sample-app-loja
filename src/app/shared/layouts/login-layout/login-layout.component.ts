@@ -3,9 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-login-layout',
   template: `
-    <p>
-      login-layout works!
-    </p>
+    <router-outlet></router-outlet>
   `,
   styles: [
   ]

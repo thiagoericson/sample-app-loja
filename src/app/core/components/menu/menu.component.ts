@@ -3,6 +3,10 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
+import { Router } from '@angular/router';
+
+import { AuthenticateService } from '../../../shared/services/authenticate.service';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -16,6 +20,10 @@ export class MenuComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private authenticateService: AuthenticateService) {}
 
+  logout() {
+    this.authenticateService.removeSession();
+    this.router.navigateByUrl('/login');
+  }
 }
